@@ -1,0 +1,13 @@
+---
+# defaults file for ansible-certbot
+
+# Currently only webroot is supported
+certbot_method: webroot
+
+# Directory where certbot will be installed
+certbot_home: /opt/certbot
+
+certbot_email: "admin@{{ ansible_domain }}"
+certbot_domains:
+  - "{{ ansible_fqdn }}"
+certbot_webroot_path: /var/www
