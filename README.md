@@ -3,7 +3,10 @@ ansible-certbot
 
 certbot installation and certificate management (https://certbot.eff.org)
 
-Currently only **webroot** method is supported
+Currently supported methods:
+ 
+ - webroot
+ - standalone
 
 Requirements
 ------------
@@ -21,7 +24,7 @@ Role Variables
 | certbot_webroot_path | /var/www | Root folder for webroot plugin |
 | certbot_rsa_key_size | - | Certificate RSA key size. If not specified, default certbot value will be used |
 | certbot_pre_hook | - | Command that will be executed before certificate is requested/updated | 
-| certbot_post_hook | - | Command that will be executed after certificate is requested/updated | 
+| certbot_post_hook | - | Command that will be executed after certificate is requested/updated |
 
 
 Example Playbook
