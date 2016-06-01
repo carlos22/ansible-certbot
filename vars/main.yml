@@ -1,0 +1,17 @@
+---
+# vars file for ansible-certbot
+
+certbot_commands:
+  - "{{ certbot_home }}/certbot-auto certonly"
+  - "{% if certbot_method == 'webroot' %}--webroot --webroot-path={{ certbot_webroot_path }}{% endif %}"
+  - "{% if certbot_method == 'standalone' %}--standalone{% endif %}"
+  - "--non-interactive"
+  - "--agree-tos"
+  - "--text"
+  - "{% if certbot_rsa_key_size is defined %}--rsa-key-size {{ certbot_rsa_key_size }}{% endif %}"
+  - "--email {{ certbot_email }}"
+  - "{% for domain in certbot_domains %}-d {{ domain }} {% endfor %}"
+  - "--expand"
+  - "{% if certbot_test_cert is defined %}--test-cert{% endif %}"
+  - "{% if certbot_pre_hook is defined %}--pre-hook '{{ certbot_pre_hook }}'{% endif %}"
+  - "{% if certbot_post_hook is defined %}--post-hook '{{ certbot_post_hook }}'{% endif %}"

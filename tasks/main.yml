@@ -8,16 +8,16 @@
   get_url: dest={{ certbot_home }} url=https://dl.eff.org/certbot-auto mode=700
 
 - name: Copy Scripts
-  template: src={{ certbot_method }}.sh dest={{ certbot_home }}/certbot.sh mode=0700
-
-- name: Copy Scripts 2
-  template: src=renew.sh dest={{ certbot_home }}/ mode=0700
+  template: src={{ item }} dest={{ certbot_home }}/{{ item }} mode=0700
+  with_items:
+    - "init.sh"
+    - "renew.sh"
 
 - name: Request Initial Certificate
-  command: "{{ certbot_home }}/certbot.sh >> /var/log/certbot.log creates={{ certbot_home }}/.initialized"
+  command: "{{ certbot_home }}/init.sh >> /var/log/certbot.log 2>&1 creates=/etc/letsencrypt/live/{{ certbot_domains[0] }}"
 
 - name: Setting Certificate Renewal Cron Job
-  cron: name=certbot_renew job="{{ certbot_home }}/renew.sh > /var/log/certbot.log 2>&1" hour=0 minute=0
+  cron: name=certbot_renew job="{{ certbot_home }}/renew.sh >> /var/log/certbot.log 2>&1" hour=0 minute=0
 
 
 
