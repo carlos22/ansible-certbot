@@ -1,6 +1,6 @@
 galaxy_info:
   author: Andrei Maus
-  description: 
+  description: Request and renew SSL certificates using Certbot https://certbot.eff.org
   company:
   
   # If the issue tracker for your role is not on github, uncomment the
@@ -114,9 +114,9 @@ galaxy_info:
   #  - 9.1
   #  - 9.2
   #  - 9.3
-  #- name: Ubuntu
-  #  versions:
-  #  - all
+  - name: Ubuntu
+    versions:
+    - all
   #  - lucid
   #  - maverick
   #  - natty
