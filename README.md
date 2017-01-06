@@ -5,6 +5,8 @@ certbot installation and certificate management (https://certbot.eff.org)
 
 Currently supported Certbot plugins:
 
+| Plugin | Description |
+|---|---|
 | webroot | Requires running HTTP server on port 80. The plugin will create random files in WEB_ROOT/.well-known/ folder for site verification, make sure this folder is exposed on your http server configuration |
 | standalone | Requires port 80 or 443 to be available |
   
