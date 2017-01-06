@@ -1,7 +1,8 @@
 ---
 # defaults file for ansible-certbot
 
-# Currently only webroot is supported
+# Certbot plugin to use
+# See https://certbot.eff.org/docs/using.html#getting-certificates-and-choosing-plugins
 certbot_method: webroot
 
 # Directory where certbot will be installed

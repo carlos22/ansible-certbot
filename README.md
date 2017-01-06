@@ -3,10 +3,12 @@ ansible-certbot
 
 certbot installation and certificate management (https://certbot.eff.org)
 
-Currently supported methods:
- 
- - webroot
- - standalone
+Currently supported Certbot plugins:
+
+| webroot | Requires running HTTP server on port 80. The plugin will create random files in WEB_ROOT/.well-known/ folder for site verification, make sure this folder is exposed on your http server configuration |
+| standalone | Requires port 80 or 443 to be available |
+  
+Additionally installs cron job that triggers certificate update check daily
 
 Requirements
 ------------
@@ -29,8 +31,7 @@ Role Variables
 
 Example Playbook
 ----------------
-
-TBD: 
+ 
 
 License
 -------
