@@ -19,8 +19,9 @@ Requirements
 Role Variables
 --------------
 
+
 | Variable | Default Value | Description |
-|---|---|---|---|---|
+|---|---|---|
 | certbot_method | webroot | The certbot certificate request method. See https://certbot.eff.org/docs/using.html#plugins for available plugins | 
 | certbot_home | /opt/certbot | certbot installation home folder |
 | certbot_email | admin@ANSIBLE_DOMAIN | Email address for certificate registration. Required by certbot |
