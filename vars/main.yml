@@ -2,7 +2,7 @@
 # vars file for ansible-certbot
 
 certbot_commands:
-  - "{{ certbot_home }}/certbot-auto certonly"
+  - "certbot certonly"
   - "{% if certbot_method == 'webroot' %}--webroot --webroot-path={{ certbot_webroot_path }}{% endif %}"
   - "{% if certbot_method == 'standalone' %}--standalone{% endif %}"
   - "--non-interactive"

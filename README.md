@@ -14,7 +14,7 @@ Additionally installs cron job that triggers certificate update check daily
 
 Requirements
 ------------
-
+Ubuntu 16.04 xenial
 
 Role Variables
 --------------
@@ -23,7 +23,7 @@ Role Variables
 | Variable | Default Value | Description |
 |---|---|---|
 | certbot_method | webroot | The certbot certificate request method. See https://certbot.eff.org/docs/using.html#plugins for available plugins | 
-| certbot_home | /opt/certbot | certbot installation home folder |
+| certbot_home | /opt/certbot | folder for the generated init/renew scripts  |
 | certbot_email | admin@ANSIBLE_DOMAIN | Email address for certificate registration. Required by certbot |
 | certbot_domains | [ansible_fqdn] |  List of domain names for certificate registration |
 | certbot_webroot_path | /var/www | Root folder for webroot plugin |

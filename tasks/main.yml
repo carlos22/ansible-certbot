@@ -4,8 +4,18 @@
 - name: Creating Certobot Folder
   file: path={{ certbot_home }} state=directory
 
-- name: Download Certbot Installator
-  get_url: dest={{ certbot_home }} url=https://dl.eff.org/certbot-auto mode=700
+#- name: Download Certbot Installator
+#  get_url: dest={{ certbot_home }} url=https://dl.eff.org/certbot-auto mode=700
+
+- name: Add certbot repo
+  apt_repository:
+    repo: 'ppa:certbot/certbot'
+
+- name: Install certbot package
+  apt:
+    name: certbot
+    state: latest
+    update_cache: yes
 
 - name: Copy Scripts
   template: src={{ item }} dest={{ certbot_home }}/{{ item }} mode=0700
@@ -18,8 +28,3 @@
 
 - name: Setting Certificate Renewal Cron Job
   cron: name=certbot_renew job="{{ certbot_home }}/renew.sh >> /var/log/certbot.log 2>&1" hour=0 minute=0
-
-
-
-
-
