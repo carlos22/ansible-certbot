@@ -28,3 +28,10 @@
 
 - name: Setting Certificate Renewal Cron Job
   cron: name=certbot_renew job="{{ certbot_home }}/renew.sh >> /var/log/certbot.log 2>&1" hour=0 minute=0
+
+- name: disable certbot timer to ensure renew hook is called via cronjob
+  systemd:
+    name: certbot.timer
+    state: stopped
+    enabled: no
+    masked: yes
